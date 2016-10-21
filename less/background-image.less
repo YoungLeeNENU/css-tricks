@@ -1,0 +1,19 @@
+@import './lib/common';
+
+:root {
+    --color: green;
+}
+
+.test-bg-img {
+    display: flex;
+    height: 300px;
+    width: 400px;
+    background-image: url('./img/Lisplogo_alien_256.png'), url('./img/Explosion.jpg');
+    background-position: 95% 85%, 50% 50%;
+    background-size: auto, 100% 100%;
+    background-repeat: no-repeat;
+    background-color: var(--color); /* level4 */
+    box-sizing: border-box;
+    clear: fix-legacy;			/* rucksack */
+    will-change: transform;
+}

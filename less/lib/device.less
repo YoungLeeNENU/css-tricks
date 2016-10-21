@@ -1,0 +1,207 @@
+/* DONE Orientation */
+._orientation(@orientation, @rules) {
+	@media screen and (orientation: @orientation) {
+	    @rules();
+    }
+}
+.landscape(@rules) {
+	._orientation(landscape, @rules);
+}
+.portrait(@rules) {
+	._orientation(portrait, @rules);
+}
+
+/* hdpi */
+.hdpi(@rules, @ratio: 1.3, @dpi: @ratio * 96) {
+	@innerdpi: unit(round(@dpi), dpi);
+    @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
+    only screen and (min--moz-device-pixel-ratio: @ratio),
+    only screen and (-o-min-device-pixel-ratio: @ratio escape('/') 1),
+    only screen and (min-resolution: @innerdpi),
+    only screen and (min-resolution: unit(@ratio, ddpx)) {
+        @rules();
+    }
+}
+
+/* iphone3 */
+.iphone3(@rules, @orientation: all) {
+    @device-min-width: 320px;
+    @device-max-width: 480px;
+    @device-pixel-ratio: 1;
+
+    .iphone3-inner(@rules) when (@orientation = all) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio) {
+            @rules();
+        }
+	}
+    .iphone3-inner(@rules) when (@orientation = landscape) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (orientation: landscape) {
+            @rules();
+        }
+    }
+    .iphone3-inner(@rules) when (@orientation = portrait) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (orientation: portrait) {
+            @rules();
+        }
+	}
+    .iphone3-inner(@rules);
+}
+
+/* iphone4 */
+.iphone4(@rules, @orientation: all) {
+    @device-min-width: 320px;
+    @device-max-width: 480px;
+    @device-pixel-ratio: 2;
+    @device-aspect-ratio: 2/3;
+
+    .iphone4-inner(@rules) when (@orientation = all) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: @device-aspect-ratio) {
+            @rules();
+        }
+    }
+    .iphone4-inner(@rules) when (@orientation = landscape) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: 2/3)
+        and (orientation: landscape) {
+            @rules();
+        }
+    }
+    .iphone4-inner(@rules) when (@orientation = portrait) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: 2/3)
+        and (orientation: portrait) {
+            @rules();
+        }
+    }
+	.iphone4-inner(@rules);
+}
+
+/* iphone5 */
+.iphone5(@rules, @orientation: all) {
+    @device-min-width: 320px;
+    @device-max-width: 568px;
+    @device-pixel-ratio: 2;
+    @device-aspect-ratio: 40/71;
+
+	.iphone5-inner(@rules) when (@orientation = all) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: @device-aspect-ratio) {
+            @rules();
+        }
+    }
+	.iphone5-inner(@rules) when (@orientation = landscape) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: @device-aspect-ratio)
+        and (orientation: landscape) {
+            @rules();
+        }
+    }
+	.iphone5-inner(@rules) when (@orientation = portrait) {
+        @media only screen
+        and (min-device-width: @device-min-width)
+        and (max-device-width: @device-max-width)
+        and (-webkit-device-pixel-ratio: @device-pixel-ratio)
+        and (device-aspect-ratio: @device-aspect-ratio)
+        and (orientation: portrait) {
+            @rules();
+        }
+    }	 
+    .iphone5-inner(@rules);
+}
+
+/* iphone6 */
+.iphone6(@rules, @orientation: all) {
+    @deviceMinWidth: 375px;
+    @deviceMaxWidth: 667px;
+    @devicePixelRatio: 2;
+
+	.iphone6-inner(@rules) when (@orientation = all) {
+       @media only screen
+       and (min-device-width: @deviceMinWidth)
+       and (max-device-width: @deviceMaxWidth)
+       and (-webkit-device-pixel-ratio: @devicePixelRatio) {
+           @rules();
+       }
+    }
+	.iphone6-inner(@rules) when (@orientation = landscape) {
+        @media only screen
+        and (min-device-width: @deviceMinWidth)
+        and (max-device-width: @deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: @devicePixelRatio)
+        and (orientation: landscape) {
+            @rules();
+        }
+    }
+	.iphone6-inner(@rules) when (@orientation = portrait) {
+        @media only screen
+        and (min-device-width: @deviceMinWidth)
+        and (max-device-width: @deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: @devicePixelRatio)
+        and (orientation: portrait) {
+            @rules();
+        }
+    }
+	.iphone6-inner(@rules);
+}
+
+/* iphone6 plus */
+.iphone6-plus(@rules, @orientation: all) {
+    @deviceMinWidth: 414px;
+    @deviceMaxWidth: 736px;
+    @devicePixelRatio: 3;
+
+	.iphone6p-inner(@rules) when (@orientation = all) {
+        @media only screen
+        and (min-device-width: @deviceMinWidth)
+        and (max-device-width: @deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: @devicePixelRatio) {
+            @rules();
+        }
+    }
+	.iphone6p-inner(@rules) when (@orientation = landscape) {
+        @media only screen
+        and (min-device-width: @deviceMinWidth)
+        and (max-device-width: @deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: @devicePixelRatio)
+        and (orientation: landscape) {
+            @rules();
+        }
+    }
+	.iphone6p-inner(@rules) when (@orientation = portrait) {
+        @media only screen
+        and (min-device-width: @deviceMinWidth)
+        and (max-device-width: @deviceMaxWidth)
+        and (-webkit-device-pixel-ratio: @devicePixelRatio)
+        and (orientation: portrait) {
+            @rules();
+        }
+    }
+	.iphone6p-inner(@rules);
+}
